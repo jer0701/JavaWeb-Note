@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+		<style type="text/css">
+		</style>
+
+		<script>
+			/*
+				getElementsByClassName(); 
+				getElementsByTagName();
+				getElementById();
+			*/
+		</script>
+		
+    </head>
+
+<body>
+	
+	<script type="text/javascript">
+		//fn();//函数自执行，this指向window
+		//document.onclick = fn; //这样的this指向document
+		/*document.onclick = function(){ //这样的this指向window
+			fn();
+		};*/
+
+		/*function fn(){
+			alert(this);
+		}*/
+
+		//document.onclick = fn1(2);//事件函数不能直接传参
+		/*document.onclick = function(){ 
+			//fn1(2);  //这样的this指向window
+			//fn1.call(this, 2,3); //第一个参数代表fn的this指向，第二个及之后是形参 这样的this指向document
+			fn1.apply(this,[2,3]); //第一个参数this和call一样，第二个形参只是把所有的形参放到一个数组里面，没有第三个形参
+		};
+		function fn1(x,y){
+			alert(x+y);
+			alert(this);
+		}*/
+
+		var User = {
+			count: 1,
+			getCount: function(){
+				return this.count;
+			}
+		};
+		//alert(User.getCount());
+		//var func = User.getCount;
+		/*var func = function(){
+			User.getCount();
+		}*/
+		
+		Function.prototype.bind = Function.prototype.bind || function(context){
+			var self = this;
+			return function(){
+				//return self.apply(context,arguments);
+				return self.call(context,arguments); //apply 和 call都可以
+			};
+		}
+		var func = User.getCount.bind(User); //IE8不支持上面是兼容性写法
+
+		alert(func());
+	</script>
+</body>
+</html>

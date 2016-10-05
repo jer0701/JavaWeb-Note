@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+
+		<script>
+			/*
+				getElementsByClassName(); 
+				getElementsByTagName();
+				getElementById();
+			*/
+		</script>
+		
+    </head>
+
+<body>
+
+
+	<script type="text/javascript">
+		/*
+			正则表达式：
+				规则：用来匹配字符串的一个规则
+
+			正则的写法：
+				/字符串/
+				new RegExp('字符串') //这种方法通常使用在参数是一个变量，变量是一个字符串
+
+			test:
+				正则.test(字符串)
+				匹配成功返回true，否则返回false
+
+			转义：
+				想匹配特殊字符，例如/,需要先转义\/在匹配/\//
+				把有特殊意义的字符变成没有意义
+				把正常的字符变成有特殊意义的字符，例如s ，转义后\s是匹配一个空格 \S（转义大写S）非空格
+
+				\s : 空格
+				\S : 非空格
+				\d : 数字
+				\D : 非数字
+				\w : 字符（数字，字符 ,下划线( _ )）
+				\W : 非字符
+				\b : 匹配单词(不是字符，单个的数字算单词)边界,必须是边界
+				\B
+				\n :匹配换行,就是匹配字符里面的\n换行符的，类似的 \t \r
+				^  起始
+				$  结束
+
+			量词：{} //在js里面是json数据
+				例：{1,5}  1 <= n <= 5
+					{2,}  2 <= n
+					{3}  3 = n 只能是三，多余或少于三的话则返回null
+					{1,} + //简写符号+
+					{0,} * //简写符号+
+					{0,1} ? //简写符号?
+
+				match：
+					字符串.match(正则)
+					匹配成功，把匹配成功的字符放入数组并返回，不成功返回null
+
+			标识：
+				写在正则表达式末尾:/reg/i
+				i 不区分大小写
+				g 全局匹配
+				m 执行多行匹配
+
+			字符集：[] //在js里面是数组或者下标
+				[0-9] 匹配0到9的数字 可拆分[2-5]
+				[a-z] 可拆分 [b-f]
+				[A-Z] 可拆分 [C-M]
+				[ab] a或者b 如[a-zA-Z]
+				[\u4E00-\u9FA5] 匹配汉字
+				[^ab]除了ab之外
+
+			子集:()
+				
+				
+			
+		*/
+
+		//var str = 'yy123yz56vicky789';
+		//[123,56,789]
+		//不使用正则方法
+		/*var s = '';
+		var arr = [];
+		for (var i=0; i<str.length; i++)
+		{
+			if(parseInt(str.charAt(i)) || parseInt(str.charAt(i)) == 0) //如果不是数字parseInt(str.charAt(i))返回的是NAN
+			{
+				s += str.charAt(i);
+			} else {
+				if(s){
+					arr.push(s);
+					s ='';
+				}
+			}
+		}
+		if(s){ //防止最后一个字符是数字
+			arr.push(s);
+			s ='';
+		}*/
+
+		//使用正则
+		//var arr = str.match(/\d+/g);
+		//alert(arr);
+		//-------------------------------------------------------------------------正则表达式
+
+		//var str = 'yy123yz56vicky789';
+		//var reg = /1234/;
+		//alert(reg.test(str));
+		//var reg = new RegExp('yz');
+		//alert(reg.test(str));
+		//-------------------------------------------------------------------------正则的写法
+
+		//var str = 'yz/123'
+		//var reg = /\//;
+		//var reg = /yz\b/;
+		//var reg = /\byz/;
+		//alert(reg.test(str));
+		//-------------------------------------------------------------------------转义
+		
+		//var str = 'yy123yz56vicky789';
+		//var reg = /\d\d\d/;  //一个\d只匹配一个数字
+		//var reg = /\d{1,2}/;  //最少一个数字，最多2个
+		//var reg = /\d+/ig;  //标识符可以共存，且不在乎顺序
+		//var reg = new RegExp('123','g');//第二个参数是标识符
+		//var reg = new RegExp('\d+','g'); //不支持这样写
+		//alert(str.match(reg));
+		//-------------------------------------------------------------------------量词+标识符
+
+		//var str = 'yy123yz5原6vicky789袁喆';
+		//var reg = /[a-zA-Z]/g; //匹配所有字母
+		//var reg = /[a-zA-Z]+/g; //匹配单词
+		//var reg = /[a-z]/ig;//匹配所有字母
+		//var reg = /[\u4E00-\u9FA5]/g;匹配汉字
+		//var reg = /[\u4E00-\u9FA5]+/g;
+		//var reg = /[袁喆\w+]|原/g;
+		//var reg = /[袁喆]+|原/g;
+		//var reg = /袁喆\w+|原/g; //这样相当于匹配了两个字符串，一个是袁喆\w+，一个是原
+		//var reg = /[^原喆]/g;
+		//var reg = /[^原喆]+/g;
+		//alert(str.match(reg))
+		//-------------------------------------------------------------------------字符集
+
+		//var str = 'aaaabbbbababab'
+		//var reg = /(ab)/g;
+		//var reg = /(ab)+/g;
+		//var str = 'abd    cbd'
+		//var reg = /abd|cbd/g; // 相等于 /(ab|cb)d/g;
+		//var reg = /[abd|cbd]/g;
+		//var reg = /(ab|cb)d/g;
+		//var reg = /(ab)d/g;
+		//var reg = /(ab)d/; //如果没加g，match会把子集(ab)放在返回的数组里面
+		//var reg = /(ab)(d)/;
+		//alert(str.match(reg));
+		//-------------------------------------------------------------------------子集
+	</script>	
+</body>
+</html>

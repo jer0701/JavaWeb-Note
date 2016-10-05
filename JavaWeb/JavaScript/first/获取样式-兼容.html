@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			#box{width:100px;height:100px;background:red;}
+		</style>
+
+		<script>
+			/*
+				getElementsByClassName(); 
+				getElementsByTagName();
+				getElementById();
+			*/
+		</script>
+		
+    </head>
+
+<body>
+	<div id="box">
+	</div>
+	
+	<script type="text/javascript">
+		var oBox = document.getElementById("box");
+		//alert(oBox.style.width);
+		//alert(   getComputedStyle( oBox ).width    ); //能使用.的话说明getComputedStyle返回的是一个对象
+		var a = getComputedStyle(oBox);
+		/*
+		for( var key in a){
+			document.write(key+":"+a[key]+"<br />");
+		}
+		*/
+		if(oBox.getcurrentStyle){  
+			alert(1);
+		} else {
+			alert(2);
+		}
+
+		function getStyle( obj , attr ){   //浏览器兼容性解决方案，获取元素的样式
+				return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj)[attr];
+		};
+	</script>
+</body>
+</html>

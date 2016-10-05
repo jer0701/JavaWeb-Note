@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+
+		<script>
+			/*
+				getElementsByClassName(); 
+				getElementsByTagName();
+				getElementById();
+			*/
+		</script>
+		
+    </head>
+
+<body>
+	color:<input type="color" name="a"/> <br />
+	date:<input type="date" name="b"/> <br />
+	datetime:<input type="datetime" name="c"/> <br />
+	datetime-local:<input type="datetime-local" name="d"/> <br />
+	email:<input type="email" name="e"/> <br />
+	month:<input type="month" name="f"/> <br />
+	number:<input type="number" name="g" min="1" max="5"/> <br />
+	range:<input type="range" name="h" min="1" max="10"/> <br />
+	search:<input type="search" name="i"/> <br />
+	tel:<input type="tel" name="j"/> <br />
+	time:<input type="time" name="k"/> <br />
+	url:<input type="url" name="l"/> <br />
+	week:<input type="week" name="m"/> <br />
+
+	datalist:<input list="browsers" />
+	<datalist id="browsers">
+		<option value="IE">
+		<option value="Chrome">
+		<option value="Firefox">
+		<option value="Opera">
+		<option value="Safari">
+	</datalist>
+
+	output:<form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+		0<input type="range" id="a" value="50">100 +<input type="number" id="b" value="50"> = <output name="x" for="a b"></output>
+	</form>
+
+	<br /><br /><br />
+	表单属性
+	
+	<form action="#" autocomplete="on">
+		first name:<input type="text" name="fname" autofocus/><br />
+		last name:<input type="text" name="lname" required/><br />
+		Select images:<input type="file" name="sfile" multiple/><br />
+		<input type="text" name="fname" placeholder="first name"/><br />
+		<input type="number" name="num" step="3"/><br />
+		<input type="submit">
+	</form>
+
+	<aside>
+		<h4>yyyy</h4>
+		<p>fdsjakfjkldajlkfjsdk</p>
+	</aside>
+
+</body>
+</html>

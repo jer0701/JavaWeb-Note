@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			#box{width:100px;height:100px;background:red;position:absolute;left:0;top:0;}
+			#move{display:block;position:absolute;width:5px;height:5px;bottom:0;right:0;background:blue;cursor:se-resize;/*se代表东南方向*/}
+		</style>
+
+		<script>
+			/*
+				getElementsByClassName(); 
+				getElementsByTagName();
+				getElementById();
+			*/
+		</script>
+		
+    </head>
+
+<body>
+	<div id='box'>
+		<span id='move'></span>
+	</div>
+
+	<script type="text/javascript">
+		var oBox = document.getElementById('box');
+		var oMove = document.getElementById('move');
+
+		oMove.onmousedown = function(e){
+			e = e || event;
+			var downX = e.clientX;
+			var downY = e.clientY;
+
+			var startW = parseFloat(getStyle(oBox, 'width'));
+			var startH = parseFloat(getStyle(oBox, 'height'));
+			document.onmousemove = function(e){
+				e = e || event;
+				var moveX = e.clientX;
+				var moveY = e.clientY;
+
+				oBox.style.width = startW + (moveX - downX) + 'px';
+				oBox.style.height = startH + (moveY - downY) + 'px';
+			}
+		};
+
+		oMove.onmouseup = function(){
+			document.onmousemove = null;
+		};
+
+		function getStyle(obj, attr){
+			return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj)[attr];
+		};
+	</script>
+</body>
+</html>

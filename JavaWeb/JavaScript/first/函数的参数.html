@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+
+		<script>
+			/*
+				getElementsByClassName(); 
+				getElementsByTagName();
+				getElementById();
+			*/
+		</script>
+		
+    </head>
+
+<body>
+	
+	<script type="text/javascript">
+		/*function yy(a, b){ //形参
+			alert(a[0]+b);
+		}
+		//yy(5,3,4); //实参 一一对应的，可以多，不可以少
+		yy([1,2],5);*/
+
+		function sum(){
+			//arguments 不定参，函数默认都有，存放着所有实参的集合
+			var s=0;
+			for(var i=0;i<arguments.length;i++){
+				s+=arguments[i];
+			}
+			alert(s);
+		}
+		sum(1,2,3,4,5);
+	</script>
+</body>
+</html>

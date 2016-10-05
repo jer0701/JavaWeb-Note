@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+		<style type="text/css">
+			#box{width:730px;height:454px;margin:0px auto;position:relative;}
+			#btn1{position:absolute;top:50%;left:0px;}
+			#btn2{position:absolute;top:50%;right:0px;}
+		</style>
+
+		<script>
+			/*
+				getElementsByClassName(); 
+				getElementsByTagName();
+				getElementById();
+			*/
+		</script>
+		
+    </head>
+
+<body>
+	<div id="box">
+		<img id="pic" src="images/1.jpg" alt="" width="730" height="454">
+		<button id="btn1"> < </button>
+		<button id="btn2"> > </button>
+	</div>
+	
+	<script type="text/javascript">
+		var oPic = document.getElementById("pic");
+		var oBtn1 = document.getElementById("btn1");
+		var oBtn2 = document.getElementById("btn2");
+		/*
+		var num = 1;
+		oBtn1.onclick = function(){
+			num++;
+			if(num <= 6)
+			{	
+				oPic.src="images/"+num+".jpg";
+			}
+			if(num > 6)
+			{
+					num=1;
+					oPic.src="images/"+num+".jpg";
+			}
+		};
+
+		oBtn2.onclick = function(){
+			num--;
+			if(num >= 1)
+			{	
+				oPic.src="images/"+num+".jpg";
+			}
+			if(num < 1)
+			{
+					num=6;
+					oPic.src="images/"+num+".jpg";
+			}
+		};*/
+
+		var num = 0;
+		var arr = ["images/1.jpg", "images/2.jpg", "images/3.jpg", "images/4.jpg", "images/5.jpg", "images/6.jpg"];
+		oBtn1.onclick = function(){
+			num++;
+			/*
+			if(num < 6){
+				oPic.src=arr[num];
+			} else {
+				num=0;
+				oPic.src=arr[num];
+			}*/
+			if(num>=6)num=0;
+			oPic.src=arr[num];
+		};
+		oBtn2.onclick = function(){
+			num--;
+			/*
+			if(num >=0){
+				oPic.src=arr[num];
+			} else {
+				num=5;
+				oPic.src=arr[num];
+			}*/
+			if(num<0)num=5;
+			oPic.src=arr[num];
+		};
+
+
+	</script>
+</body>
+</html>

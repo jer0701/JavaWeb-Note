@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			#box{width:100px;height:100px;background:red;position:absolute;left:0;top:0;}
+			.move{cursor:move;}
+		</style>
+
+		<script>
+			/*
+				getElementsByClassName(); 
+				getElementsByTagName();
+				getElementById();
+			*/
+		</script>
+		
+    </head>
+
+<body>
+	<div id='box'></div>
+
+	<script type="text/javascript">
+		/*
+			onmousedown
+			onmouseup
+			onmousemove
+
+			事件冒泡：在子元素上面触发的事件，会传递给父元素（e.cancelBubble = true 设置这个阻止传递给父元素）
+		*/
+		var oBox = document.getElementById('box');
+		/*oBox.onmousedown = function(){
+			console.log('down');
+		};
+		oBox.onmouseup = function(){
+			console.log('up');
+		};
+		oBox.onmousemove = function(){
+			console.log('move');
+		};*/
+		
+		oBox.onmousedown = function(e){
+			e = e || event;
+			this.className = 'move';
+			//鼠标按下时坐标
+			var downX = e.clientX;
+			var downY = e.clientY;
+
+			//盒子初始位置
+			var startLeft = oBox.offsetLeft;
+			var startTop = oBox.offsetTop;
+
+			document.onmousemove = function(e){ //注册move事件 如果使用oBox的move事件，那么拖动太快就不行
+				var moveX = e.clientX;
+				var moveY = e.clientY;
+
+				oBox.style.left = startLeft + (moveX - downX) + 'px';
+				oBox.style.top = startTop + (moveY - downY) + 'px';
+			}
+		}
+		oBox.onmouseup = function(){
+			document.onmousemove = null; //移除move事件
+			this.className = '';
+		}
+
+	</script>
+</body>
+</html>

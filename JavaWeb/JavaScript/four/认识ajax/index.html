@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+    <head>
+		<!--声明当前页面的编码集：国际编码（utf-8）-->
+		<meta http-equiv="Content-Type" content="text/html"charset="UTF-8">
+		<title>模板</title>
+		<meta name="Keywords" content="">
+		<meta name="Description" content="">
+
+		<!--css/js-->
+		<style type="text/css">
+		</style>
+    </head>
+
+ <body>
+	我是一个index页面<br /><br /><br />
+	<ul id="list">
+		<!-- <li>姓名：阿飞，年龄：18</li> -->
+	</ul>
+
+	<script type="text/javascript">
+		var oUl = document.getElementById("list");
+		ajax();
+		setInterval(ajax,1000);
+		function ajax(){
+			var xhr = new XMLHttpRequest();
+			xhr.open("get", "index-data.php", true);//异步方式执行
+			xhr.send();
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4)
+				{
+					//alert(xhr.responseText);
+					var arr = eval( xhr.responseText );//eval解析JSON文本，是不安全的方法，json解析器是安全的 将字符串当作javascript代码来读，还有例如setInterval(str,2000);
+					//还有写在标签里面的事件，如：<body onclick="alert(1)">
+					//alert(arr);
+					//alert(arr[0].name);
+					oUl.innerHTML = '';
+					for(var i=0;i<arr.length;i++)
+					{
+						oUl.innerHTML += "<li>姓名：" + arr[i].name + ", 年龄：" +  arr[i].age;
+					}
+					//oUl.appendChild("'<li>姓名：' + arr[0].name + ', 年龄：' +  arr[0].age")//没有用
+				}
+			};
+		};
+	</script>
+ </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+
+		<script>
+			/*
+				getElementsByClassName(); 
+				getElementsByTagName();
+				getElementById();
+			*/
+		</script>
+		
+    </head>
+
+<body>
+
+	<script type="text/javascript">
+		function getClass( cName, parent) {
+			parent = parent || document; 
+			var arr = []; //要返回的类名是cName的元素数组
+			if(document.getElementsByClassName)
+			{
+				//return document.getElementsByClassName( cName );
+				var x = parent.getElementsByClassName( cName ); //这种写法是出现动态添加类名的情况oDiv.className = 'on'; 把它写死，不会因为添加而会变
+				for(var i=0; i<x.length; i++)
+				{
+					arr[i] = x[i];
+				}
+			} else {
+				
+				var arrE = parent.getElementsByTagName( '*' );
+				for(var i=0; i<arrE.length; i++)
+				{
+					/*if(arrE[i].className == cName){
+						arr.push(arrE[i]);
+					}*/
+					var aName = allE[i].className.split(' ');//如果出现class = "box on"这种情况
+					for(var j=0;j<aName.length; j++)
+					{
+						if(aName[j] == cName)
+						{
+							arr.push(allE[i]);
+							break; //防止出现class = "box on box" 只push一次
+						}
+					}
+				}
+				//return arr;
+			}
+			return arr;
+		}
+	</script>
+	
+</body>
+</html>

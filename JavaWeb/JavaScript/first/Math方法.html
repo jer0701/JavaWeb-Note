@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+
+		<script>
+			/*
+				getElementsByClassName(); 
+				getElementsByTagName();
+				getElementById();
+			*/
+		</script>
+		
+    </head>
+
+<body>
+	
+	<script type="text/javascript">
+		/*
+			toString();
+			toFixed();//保留几位小数
+			Math;
+			parseInt();
+			parseFloat();
+			Number();
+		*/
+		var num = 10;
+		var a = num.toString(8);//参数2代表二进制，可以是8、16进制，默认不带参数。
+
+		var a = num.toFixed(2);
+
+		var a = Math.random(); //[0,1)之间的随机数，不需要参数。 a*10就是0到10之间的随机数
+
+		var a = Math.abs(-10);
+		var num = 1.001
+		var a = Math.ceil(num); //向上取整
+		var a = Math.floor(num); //向上取整
+		var a = Math.round(num); //四舍五入
+		var a = Math.max(1,2,3);
+		var a = Math.min(1,2,3);
+
+		var num = "100.34px";
+		var a = parseInt(num);
+		var a = parseFloat(num);
+		alert(a);
+	</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			body{font-size:12px;}
+			#box{
+				width:200px;height:300px;border:1px solid red;
+				/*从左边元素移动50px，顶部移动100px*/
+				transform:translate(50px,100px);
+				-ms-transform:translate(50px,100px);
+				-webkit-transform:translate(50px,100px);
+
+				/*顺时针旋转30度 ，负值是允许的，代表逆时针*/
+				transform:rotate(30deg);
+
+				/*宽度扩大两倍，高度扩大四倍*/
+				transform:scale(4,4);
+
+				/*x轴倾斜30度，y轴倾斜20度*/
+				transform:skew(30deg,20deg);
+
+				/*旋转30度*/
+				transform:matrix(0.866,0.5,-0.5,0.866,0,0);
+			}
+		</style>
+
+		<script>
+			/*
+				getElementsByClassName(); 
+				getElementsByTagName();
+				getElementById();
+			*/
+		</script>
+		
+    </head>
+
+<body>
+	<div id="box">
+	</div>
+	
+</body>
+</html>

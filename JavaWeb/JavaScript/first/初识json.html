@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+
+		<script>
+			/*
+				getElementsByClassName(); 
+				getElementsByTagName();
+				getElementById();
+			*/
+		</script>
+		
+    </head>
+
+<body>
+
+	<script type="text/javascript">
+		var obj = {
+			"name": "yz",
+			"age": 18,
+			"sex": "man",
+			"say": function(){	alert("hello world"); }
+		};
+		//alert(obj.name);
+		obj.fq = "18";  //给对象新增一个属性
+		//alert(obj.fq);
+		/*
+		for (var x in obj ) //可以遍历所有的属性，不能遍历值，可以通过遍历所有的属性得带值
+		{
+			//alert(x);
+			alert(obj[x]); //可以使用[]代替.
+		}
+		*/
+		/*
+		for(var x in document)
+		{
+			//alert(x);  //document有N多个属性
+		}
+		*/
+	</script>	
+</body>
+</html>

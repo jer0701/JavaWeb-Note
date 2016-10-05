@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			#box{
+				width:200px;
+				height:100px;
+				background:red;
+				position:absolute;
+				left:0;
+				top:0;
+			}
+		</style>
+
+		<script>
+			/*
+				getElementsByClassName(); 
+				getElementsByTagName();
+				getElementById();
+			*/
+		</script>
+		
+    </head>
+
+<body>
+	<div id="box"></div>
+	
+	<script type="text/javascript">
+		var oBox = document.getElementById("box");
+		/*
+		var a = new Date();//当前电脑的时间
+		var y = a.getFullYear(); //年
+		var m = a.getMonth() + 1; //月
+		var d = a.getDate(); //日
+		var hh = a.getHours(); //时
+		var mm = a.getMinutes(); //分
+		var ss = a.getSeconds(); //秒
+		var day = a.getDay(); //星期；注：星期天是0，从0开始
+		alert(a);
+
+		var b = new Date(1970,0,1); //如果带参数，那么就是设置时间，不带参数就是得到时间
+		alert(a-b);
+		*/
+
+		/*
+		var startTime = new Date();
+		setTimeout(function(){var currentTime = new Date(); alert(currentTime - startTime);} //弹出5000的数值
+		,5000);
+		*/
+
+		//简单时间版运动函数
+		/*
+		move(oBox,"width",500,10000);
+	
+		function move(obj, attr, target, time) {
+			var startVal = parseInt(getStyle(obj,attr));
+			var startTime = new Date();
+
+			var timer = setInterval(function(){
+				var currentTime = new Date();
+				/*
+				if((currentTime - startTime)> time)
+				{
+					var ss = 1000*(target - startVal)/time + startVal;
+
+					obj.style[attr] = ss + "px";
+				} else {
+				
+					var ss = (currentTime - startTime)*(target - startVal)/time + startVal; //匀速直线运动
+
+					obj.style[attr] = ss + "px";
+				}*/				/*
+				var prop = (currentTime - startTime) / time;
+				if(prop >= 1){
+					prop = 1;
+					clearInterval(timer);
+				}
+				
+				var ss = prop *(target - startVal) + startVal; //匀速直线运动
+				obj.style[attr] = ss + "px";
+			},13);
+
+			function getStyle(obj, attr){
+				return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj)[attr];
+			}
+		}*/
+
+		//运动完成后执行回调函数
+		/*move(oBox,"width",500,2000,function(){
+			oBox.style.background = "blue";
+		});*/
+		move({
+			obj:oBox,
+			attr:"width",
+			time:3000,
+			target:500,
+			callback:function(){
+			oBox.style.background = "blue";
+			}
+		});
+		
+		//function move(obj, attr, target, time, callback) {
+		function move(mJson){
+			var obj = mJson.obj;
+			var attr = mJson.attr;
+			var target = mJson.target;
+			var time = mJson.time || 500;
+			var callback = mJson.callback;
+			var startVal = parseInt(getStyle(obj,attr));
+			var startTime = new Date();
+
+			var timer = setInterval(function(){
+				var currentTime = new Date();
+				/*
+				if((currentTime - startTime)> time)
+				{
+					var ss = 1000*(target - startVal)/time + startVal;
+
+					obj.style[attr] = ss + "px";
+				} else {
+				
+					var ss = (currentTime - startTime)*(target - startVal)/time + startVal; //匀速直线运动
+
+					obj.style[attr] = ss + "px";
+				}*/				
+				var prop = (currentTime - startTime) / time;
+				if(prop >= 1){
+					prop = 1;
+					clearInterval(timer);
+					/*if(callback)
+					{
+						callback();
+					}*/
+					callback && callback();
+				}
+				
+				var ss = prop *(target - startVal) + startVal; //匀速直线运动
+				obj.style[attr] = ss + "px";
+			},13);
+
+			function getStyle(obj, attr){
+				return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj)[attr];
+			}
+		}
+	</script>
+</body>
+</html>

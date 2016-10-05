@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			#box{width:100px;height:100px;background:red;position:absolute;left:0;top:0;}
+		</style>
+
+		<script>
+			/*
+				getElementsByClassName(); 
+				getElementsByTagName();
+				getElementById();
+			*/
+		</script>
+		
+    </head>
+
+<body>
+	<div id='box'></div>
+
+	<script type="text/javascript">
+		/*
+			事件冒泡：在子元素上面触发的事件，会传递给父元素（e.cancelBubble = true 设置这个阻止传递给父元素）
+
+			onclick是绑定事件
+			click是个方法，作用是触发onclick事件，click方法中的function代码会在onclick事件执行完之后执行
+		*/
+		var oBox = document.getElementById('box');
+		//oBox.addEventListener('click', a1, false); //IE8不兼容 不能是onclick
+		//oBox.addEventListener('click', a2, false); //执行顺序是a1 a2
+		//oBox.removeEventListener('click', a1, false); //事件解绑
+
+		//oBox.attachEvent('onclick' ,a1);  //chrome等不兼容，且需要onclick
+		//oBox.attachEvent('onclick' ,a2);  //执行顺序是a2 a1(反的)
+		//oBox.detachEvent('onclick' ,a1); //事件解绑
+
+		addEvent(oBox, 'click', a1);
+		addEvent(oBox, 'click', a2);
+		removeEvent(oBox, 'click', a1);
+
+		function a1(){
+			alert(1);
+		}
+		function a2(){
+			alert(2);
+		}
+
+		function addEvent(obj, eName, eFn){ //事件绑定的兼容性写法
+			document.addEventListener?obj.addEventListener(eName, eFn, false):obj.attachEvent('on'+eName, eFn);
+		}
+		function removeEvent(obj, eName, eFn){ //事件解绑的兼容性写法
+			document.removeEventListener?obj.removeEventListener(eName, eFn, false):obj.detachEvent('on'+eName, eFn);
+		}
+	</script>
+</body>
+</html>

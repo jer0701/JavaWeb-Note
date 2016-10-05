@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+
+		<script>
+			/*
+				getElementsByClassName(); 
+				getElementsByTagName();
+				getElementById();
+			*/
+		</script>
+		
+    </head>
+
+<body>
+	<div id="box" class="name on on"></div>
+	<script type="text/javascript">
+		var oBox = document.getElementById('box');
+		//classAdd(oBox, 'on');
+		classRemove(oBox, 'on');
+
+		function classAdd(obj, cName){
+			var objCName = obj.className;
+			if(objCName)
+			{
+				var arrName = obj.className.split(' ');
+				for(var i=0; i<arrName.length; i++)
+				{
+					if(arrName[i] == cName)return;
+				}
+				obj.className += " " + cName;
+			} else {
+				obj.className= cName;
+			}
+		};
+
+		function classRemove(obj, cName){
+			var objCName = obj.className;
+			if(objCName)
+			{
+				var arrName = obj.className.split(' ');
+				for(var i=0; i<arrName.length; i++)
+				{
+					if(arrName[i] == cName)
+					{
+						arrName.splice(i, 1);
+						i--; //如果有多个类名相同 class="name on on"
+					}
+				}
+				obj.className = arrName.join(' ');
+			} else {
+				return
+			}
+		};
+	</script>
+</body>
+</html>

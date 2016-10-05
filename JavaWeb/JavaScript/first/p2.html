@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+		<!--css,js-->
+		<style>
+			*{margin:0;padding:0;}
+			#box{width:100px;height:100px;background:red;}
+			#btn{font-family:"微软雅黑";}
+			#cover{width:100%;height:100%;position:fixed;background:rgba(238,136,247,0.5);top:0;left:0;display:none;}
+			#tk{width:360px;height:200px;background:#fff;position:absolute;top:50%;left:50%;margin-top:-100px;margin-left:-180px;border:1px solid green;}
+			#tk p{line-height:40px;text-indent:20px;margin:5px 0px 0px 25px;}
+			#tk p font{font-weight:bold;margin-right:10px;}
+			#tk p span{border:1px solid #999;margin-left:16px;}
+			#tk p span:hover{cursor:pointer;}
+			#tk .r,#tk .g,#tk .b{display:inline-block;width:40px;height:12px;}
+			#tk .r{background:red;}
+			#tk .g{background:green;}
+			#tk .b{background:blue;}
+			#btn2{margin:8px 0px 0px 158px;}
+		</style>
+    </head>
+
+<body>
+
+	<div id="box"></div>
+	<!--<input type="button" value="点我" />-->
+	<button id="btn">点我!</button>
+	<div id="cover">
+		<div id="tk">
+				<p>
+					<font>颜色</font>
+					<span class="r" x="red"></span>
+					<span class="g" x="green"></span>
+					<span class="b" x="blue"></span>
+				</p>
+				<p>
+					<font>宽度</font>
+					<span>100px</span>
+					<span>200px</span>
+					<span>300px</span>
+				</p>
+				<p>
+					<font>高度</font>
+					<span>100px</span>
+					<span>200px</span>
+					<span>300px</span>
+				</p>
+				<button id="btn2">完成</button>
+		</div>
+	</div>
+	
+
+	<script type="text/javascript">
+		var oBox = document.getElementById("box");
+		var oBtn = document.getElementById("btn");
+		var oCover = document.getElementById("cover");
+		var oTk = document.getElementById("tk");
+		var oBtn2 = document.getElementById("btn2");
+		var oSpan = oCover.getElementsByTagName("span");
+
+		oBtn.onclick = function(){
+			oCover.style.display = "block"
+		}
+		oBtn2.onclick = function(){
+			oCover.style.display = "none"
+		}
+
+		/*for(var i=0;i<3;i++){
+			oSpan[i].onclick = function(){ 
+				oBox.style.background = this.getAttribute("x"); //其实是赋值与行内样式中
+			}
+			oSpan[i+3].onclick = function(){ 
+				oBox.style.width = this.innerHTML; //其实是赋值与行内样式中
+			}
+			oSpan[i+3].onclick = function(){ 
+				oBox.style.height = this.innerHTML; //其实是赋值与行内样式中
+			}
+		}*/
+
+		
+		for(var i=0;i<3;i++){
+			oSpan[i].onclick = function(){ 
+				oBox.style.background = this.getAttribute("x"); //其实是赋值与行内样式中
+			}
+		}
+
+		for(var i=3;i<6;i++){
+			oSpan[i].onclick = function(){ 
+				oBox.style.width = this.innerHTML; //其实是赋值与行内样式中
+			}
+		}
+
+		for(var i=6;i<9;i++){
+			oSpan[i].onclick = function(){ 
+				oBox.style.height = this.innerHTML; //其实是赋值与行内样式中
+			}
+		}
+		/*
+		oSpan[0].onclick = function(){ 
+			oBox.style.background = this.getAttribute("x"); //其实是赋值与行内样式中
+		}
+
+		oSpan[1].onclick = function(){ 
+			oBox.style.background = this.getAttribute("x");
+		}
+
+		oSpan[2].onclick = function(){ 
+			oBox.style.background = this.getAttribute("x");
+		}
+
+		oSpan[3].onclick = function(){ 
+			oBox.style.width = this.innerHTML;
+		}
+
+		oSpan[4].onclick = function(){ 
+			oBox.style.width = this.innerHTML;
+		}
+
+		oSpan[5].onclick = function(){ 
+			oBox.style.width = this.innerHTML;
+		}
+
+		oSpan[6].onclick = function(){ 
+			oBox.style.height = this.innerText;
+		}
+
+		oSpan[7].onclick = function(){ 
+			oBox.style.height = this.innerText;;
+		}
+
+		oSpan[8].onclick = function(){ 
+			oBox.style.height = this.innerText;;
+		}*/
+	</script>
+  
+</body>
+</html>

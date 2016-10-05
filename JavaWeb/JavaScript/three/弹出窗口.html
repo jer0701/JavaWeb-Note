@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			.overlay{
+				position:fixed;
+				left:0;
+				top:0;
+				bottom:0; /*这两个属性如果不加，因为没有宽高，就不能实现全屏*/
+				right:0;
+				background:rgba(0,0,0,0.8);
+			}
+			.overlay .article{
+				width:400px;
+				height:400px;
+				position:absolute;
+				top:50%;
+				left:50%;
+				margin-left:-200px;
+				margin-top:-200px;
+				background:#fff;
+			}
+		</style>
+
+		<script>
+			/*
+				getElementsByClassName(); 
+				getElementsByTagName();
+				getElementById();
+			*/
+		</script>
+		
+    </head>
+
+<body>
+	<!--弹出窗口-->
+	<div class="overlay">
+		<div class="article"></div>
+	</div>
+	<script src="js/jquery-3.0.0.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.overlay').click(function(e){
+				e = e|| event;
+				//$(this).css('display','none');
+				//$(this).hide();
+				if(e.target == e.currentTarget)$(this).hide(); //这个解决了事件冒泡
+				e.cancelBubble = true; //阻止冒泡
+				//在这里设置cancelBubble = true没用，因为是overlay子元素点击冒泡到overlay元素，如果要使用，也应该是在子元素下使用cancelBubble = true （不是所有的事件都冒泡，focus、blur、load、unload）onmouseenter和onmouseover有冒泡区别，enter没有冒泡，over有
+			});
+		});
+	</script>
+</body>
+</html>

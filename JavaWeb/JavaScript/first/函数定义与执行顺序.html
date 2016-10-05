@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+
+		<script>
+			/*
+				getElementsByClassName(); 
+				getElementsByTagName();
+				getElementById();
+			*/
+		</script>
+		
+    </head>
+
+<body>
+	
+	<script type="text/javascript">
+		/*
+		var x = 10;
+		a();
+		function a(){
+				alert(x);
+				var x = 20;
+		};
+		alert(x);
+		*/
+		/*
+			1.定义
+			var x
+			function a(){
+				alert(x);
+				var x = 20;
+			};
+			2.执行
+			x = 10
+			a();         ===>
+			                 1.定义
+							 var x 
+							 2.执行
+							 alert(x)
+							 x = 20;
+			alert(x);
+
+			undefined 10
+		*/
+		
+		/*
+		alert( a );
+		var a = 10;  
+		alert( a );
+		function a(){alert(20)};
+		alert( a ); 
+		var a = 30; 
+		alert( a );
+		function a(){alert(40)};
+		alert( a ); 
+		*/
+		/*
+			1.定义
+			同名定义，以最后一个函数定义为定义
+			function a(){alert(40)};
+			2.执行
+			alert(a) //函数块
+			a = 10
+			alert(a) //10
+			alert(a) //10
+			a = 30
+			alert(a) //30
+			alert(a) //30
+		*/
+		
+		/*
+		var a = 10;
+		alert( a );
+		a(); 
+		function a(){ alert(2); };
+		*/
+		/*
+			1.定义
+			function a(){ alert(2); };
+			2.执行
+			a = 10；
+			alert(a);
+			a(); //报错
+		*/
+		
+		/*
+		a();
+		var a = function(){alert( 1 );};
+		a();
+		function a(){alert(2);}
+		a();
+		var a = function(){alert(3);};
+		a();
+		*/
+		/*
+			1.定义：
+			function a(){ alert(2); };
+			2.执行：
+			a();  //2
+			a = function(){alert( 1 );}
+			a();  //1
+			a();  //1
+			a = function(){alert(3);}
+			a();  //3
+		*/
+
+		/*
+		fn();
+		alert(a);
+		var a = 0;
+		alert(a);
+		function fn(){
+			a = 1;
+		};*/
+		/*
+			1.定义：
+			var a；
+			function fn(){
+				a = 1;
+			};
+			2.执行：
+			fn();  ===>定义
+			           执行：a = 1
+		    alert(a); //1
+			a = 0 ;
+			alert(a); //0
+		*/
+		
+		/*
+		fn()();
+		var a = 0;
+		function fn(){
+			alert( a );
+			var a = 3;
+			function c(){
+				alert( a );
+			};
+			return c;
+		};
+		*/
+		/*
+			1.定义：
+			var a;
+			function fn(){
+				alert( a );
+				var a = 3;
+				function c(){
+					alert( a );
+				};
+				return c;
+			};
+			2.执行：
+			fn()   ===> 1.定义：
+			              var a；
+						  function c(){
+							alert( a );
+						  };
+						2.执行：
+						  alert(a); //undefind
+						  a = 3;
+						  return c;
+			fn()()  ===> 1.定义
+			             2.执行：
+						   alert(a); //3
+			a = 0;
+		*/
+
+		var a = 5;
+		function fn(){
+			var a = 10;
+			alert(a);
+			function b(){
+				a++;
+				alert(a);
+			};
+			return b;
+		};
+		var c = fn();
+		c();
+		fn()();
+		c();
+		/*
+			1.定义：
+			var a;
+			function fn(){
+				var a = 10;
+				alert(a);
+				function b(){
+					a++;
+					alert(a);
+				};
+				return b;
+			};
+			var c;
+			2.执行：
+			a = 5;
+			fn()  ===> 1.定义：
+					     var a;
+						 function b(){	
+							a++;
+							alert(a);
+						 };
+					   2.执行：
+					     a = 10;
+						 alert(a); //10
+						 return b; //return 一个函数块
+			c = fn() = b;
+
+			c()  ===>  ===>1.定义：没有定义
+						   2.执行：执行return的b函数
+							 a++;
+							 alert(a); //11
+
+			fn(); ===>  1.定义：
+					     var a;
+						 function b(){	
+							a++;
+							alert(a);
+						 };
+					   2.执行：
+					     a = 10;
+						 alert(a); //10
+						 return b; //return 一个函数块
+			fn()(); ===> ===>1.定义：
+							 2.执行：执行return的b函数
+								 a++;
+								 alert(a); //11
+
+			c()   ====>  ===>1.定义：没有定义
+							 2.执行：这个执行是执行在上一次c()执行之后的结果之后的，上一次结果是11
+								 a++;
+								 alert(a); //12
+			
+
+		*/
+	</script>
+</body>
+</html>

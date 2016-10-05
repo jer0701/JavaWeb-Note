@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+
+		
+		
+    </head>
+
+<body>
+	<div id="demo" style="width:500px;height:100px;"></div>
+	<script>
+			/*
+				getCurrentPosition的方法如果成功，始终会返回latitude(十进制纬度)、longitude(十进制经度)以及accuracy(位置精确)属性
+			*/
+			var x = document.getElementById("demo");
+			function getLocation()
+			{
+				if(navigator.geolocation)
+				{
+					navigator.geolocation.getCurrentPosition(showPosition,showError);//getCurrentPosition的第二个参数用于处理错误
+				}
+				else {
+					x.innerHTML="浏览器不支持获取地理位置";
+				}
+			}
+			function showPosition(position) //showPosition中规定的函数返回一个coordinates对象
+			{
+				x.innerHTML = "Latitude:" + position.coords.latitude + "<br />Longitude:" +position.coords.longitude;
+			}
+
+			function showError(error)
+			{
+				switch(error.code)
+				{
+					case error.PERMISSION_DENIED:
+						x.innerHTML="用户拒绝对获取地位位置的请求";
+						break;
+
+					case error.PERMISSION_UNAVAILABLE:
+						x.innerHTML="地理位置信息不可用";
+						break;
+
+					case error.TIMEOUT:
+						x.innerHTML="请求地理位置超时";
+						break;
+
+					case error.UNKNOWN_ERROR:
+						x.innerHTML="未知错误";
+						break;
+				}
+			}
+			getLocation();
+		</script>
+</body>
+</html>

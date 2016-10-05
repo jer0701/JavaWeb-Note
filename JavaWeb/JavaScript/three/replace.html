@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+		<style type='text/css'>
+			*{ margin:0; padding:0; font-family:'Microsoft yahei';}
+			
+			#box{
+				width:300px;
+				margin-top:20px;
+				font-size:14px;
+				line-height:35px;
+			}
+			#box p span{
+				float:right;
+			}
+		</style>
+
+		<script>
+			/*
+				getElementsByClassName(); 
+				getElementsByTagName();
+				getElementById();
+			*/
+		</script>
+		
+    </head>
+
+<body>
+	
+	<input type="text" id='txt' />
+	<div id="box"></div>
+
+	<script>
+			
+		var oTxt = document.getElementById('txt');
+		var oBox = document.getElementById('box');
+
+		oTxt.onkeydown = function(e){
+			e = e || event;
+			if ( e.keyCode == 13 )
+			{
+				var val = this.value;
+				this.value = '';
+				if ( val )
+				{
+					var reg = /傻.{0,2}逼|垃圾|操你妈|SB/ig; //.表示匹配所有字符，.{0,2}匹配最多2个所有字符
+					val = val.replace( reg , function(x){ //function(x, y) x是前面reg正则匹配返回的结果，y是结果返回的子集
+						var r = '';
+						for (var i=0;i<x.length;i++ )
+						{
+							r += '*';
+						}
+						return r;
+					} );
+
+					var time = new Date();
+					var oP = document.createElement('p');
+					oP.innerHTML = val + '<span>'+time.getHours()+':'+time.getMinutes()+":"+time.getSeconds()+'</span>';
+					oBox.appendChild( oP );
+				}
+			}
+		};
+
+	</script>
+</body>
+</html>

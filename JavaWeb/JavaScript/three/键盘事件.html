@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+
+		<script>
+			/*
+				getElementsByClassName(); 
+				getElementsByTagName();
+				getElementById();
+			*/
+		</script>
+		
+    </head>
+
+<body>
+	<input type="text" id='txt'>
+
+	<script type="text/javascript">
+		/*
+			onkeydown  键盘上的键都可以触发
+			onkeypress 只触发能输入字符的键，还有回车键，别的键不触发
+			onkeyup 按键抬起时触发
+		*/
+		var oTxt = document.getElementById('txt');
+		/*oTxt.onkeydown = function(){
+			console.log(this.value);
+		}*/
+
+		/*oTxt.onkeypress = function(){ //按退格键不会触发
+			console.log(this.value);
+		}*/
+		
+		/*oTxt.onkeyup = function(){
+			console.log(this.value);
+		}*/
+
+		document.onkeyup = function(e){
+			e = e || event
+			var k = e.keyCode;
+			console.log(k);  //可以知道上下左右四个键的码值，然后swich方法键值可以做上下左右键控制盒子移动（推箱子游戏）
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>百度一下，你就知道</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			body{font-size:12px;font-family:"Microsoft yahei";color:#666;}
+			#box{width:100%;height:760px;}
+			#box .top{width:100%px;height:50px;}
+			#box .center{width:100%;height:600px;}
+			#box .bottom{width:100%;height:110px;}
+			#box .top ul{float:right;}
+			#box .top ul li{float:left;list-style:none;padding-right:23px;padding-top:30px;}
+			#box .top ul li a{color:#000;font-size:14px;font-weight:bold;}
+			#box .top ul li a:hover{color:#00c;}
+			#box .top .t_more{width:66px;height:22px;line-height:22px;text-align:center;background:#38f;color:#fff;text-decoration:none;display:block;}
+			#box .top .t_more:hover{color:#fff;text-decoration:underline;}
+
+			#box .center .c_up{width:100%;height:132px;}
+			#box .center .c_up img{width:270px;height:129px;display:block;
+				/*由于上面使用了padding，把内容撑大了3px*/
+				margin:3px auto;
+				}
+			#box .center .c_down{width:100%;}
+			#box .center .c_down .c_text{width:641px;height:37px;margin:20px auto;border:1px solid #4791ff;}
+			#box .center .c_down .c_text .c_txt{width:540px;height:37px;border:none;}
+			#box .center .c_down .c_text .c_btn{width:100px;height:37px;}
+		</style>
+
+		<script>
+			/*
+				getElementsByClassName(); 
+				getElementsByTagName();
+				getElementById();
+			*/
+		</script>
+		
+    </head>
+
+<body>
+	<div id="box">
+		<div class="top">
+			<ul>
+				<li><a href="#">糯米</a></li>
+				<li><a href="#">新闻</a></li>
+				<li><a href="#">hao123</a></li>
+				<li><a href="#">地图</a></li>
+				<li><a href="#">视频</a></li>
+				<li><a href="#">贴吧</a></li>
+				<li><a href="#">登录</a></li>
+				<li><a href="#">设置</a></li>
+				<li><a href="#" class="t_more">更多产品</a></li>
+			</ul>
+		</div>
+		<div class="center">
+			<div class="c_up">
+				<img src="baidu.png" alt="baidu" width="270" height="129" />
+			</div>
+			<div class="c_down">
+				<div class="c_text">
+					<input type="text" class="c_txt"/><input type="button" value="百度一下" class="c_btn"/>
+				</div>
+			</div>
+		</div>
+		<div class="bottom"></div>
+	</div>
+</body>
+</html>

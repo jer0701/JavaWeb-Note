@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+
+		<script>
+			/*
+				getElementsByClassName(); 
+				getElementsByTagName();
+				getElementById();
+			*/
+		</script>
+		
+    </head>
+
+<body>
+
+	<script type="text/javascript">
+		/*
+			字符串相关方法
+				s.length
+				s[下标] 兼容IE8及以上
+				s.charAt(下标) 兼容所有
+				s.charCodeAt(下标) 字符的ansi值
+				s.fromCharCode(ansi) 将ansi转换成相应的字符
+				s.indexOf(要找的字符，从哪个位置开始找,默认0) 返回找到字符的下标，找不到返回-1
+				s.lastIndexOf()
+				s.substring(从哪个下标开始截取 包括，到哪个下标结束 不包括)  还有个方法substr参数意义有点不一样
+				s.split("str") 以str为界限分割字符，返回一个数组
+				s.toUpperCase() 小写转大写
+				s.toLowerCase() 大写转小写
+		*/
+
+		//var str = "y\"123\"z"; // \是转义  /是正则表达式
+		var str = "yzy"
+		alert( str.indexOf("y",1) );
+	</script>
+	
+</body>
+</html>

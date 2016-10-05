@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+		<style type="text/css">
+			#banner{
+				width:730px;
+				height:454px;
+				margin:50px auto;
+				position:relative;
+				border:1px solid red;
+			}
+			#pic img{
+				position:absolute;
+				left:0;
+				top:0;
+				display:none;
+			}
+			#btn button{
+				width:30px;
+				height:40px;
+				font-size:20px;
+			}
+			#left{
+				position:absolute;
+				top:50%;
+				left:0;
+				margin-top:-20px;
+			}
+			#right{
+				position:absolute;
+				top:50%;
+				right:0;
+				margin-top:-20px;
+			}
+			#tab{
+				position:absolute;
+				bottom:0;
+				left:50%;
+				margin-left:-120px;
+			}
+			#tab ul li{
+				list-style:none;
+				width:20px;
+				height:20px;
+				float:left;
+				margin-right:5px;
+				border-radius:100%;
+				border:1px solid red;
+				text-align:center;
+				line-height:20px;
+				cursor:pointer;
+			}
+			.on{
+				background:#f60;
+			}
+		</style>
+
+		<script>
+			/*
+				getElementsByClassName(); 
+				getElementsByTagName();
+				getElementById();
+			*/
+		</script>
+		
+    </head>
+
+<body>
+	<div id="banner">
+		<div id="pic">
+			<img src="img/1.jpg" alt="" width="730" height="454" />
+			<img src="img/2.jpg" alt="" width="730" height="454" />
+			<img src="img/3.jpg" alt="" width="730" height="454" />
+			<img src="img/4.jpg" alt="" width="730" height="454" />
+			<img src="img/5.jpg" alt="" width="730" height="454" />
+			<img src="img/6.jpg" alt="" width="730" height="454" />
+		</div>
+		<div id="btn">
+			<button id="left"> &lt; </button>
+			<button id="right"> &gt; </button>
+		</div>
+		<div id="tab">
+			<ul>
+				<li class="on">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+			</ul>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		var oBanner = document.getElementById("banner");
+		var oImg = document.getElementById("pic").getElementsByTagName("img");
+		var oTabli = document.getElementById("tab").getElementsByTagName("li");
+		var oLeft = document.getElementById("left");
+		var oRight = document.getElementById("right");
+		oImg[0].style.display = "block";
+		oTabli[0].className = "on";
+		var bannerIndex = 0;
+
+		/*
+		for(var i=0; i<oTabli.length; i++){
+			oTabli[i].x = i;
+			oTabli[i].onclick = function(){
+				
+				oTabli[bannerIndex].className = "";
+				oImg[bannerIndex].style.display = "none";
+				
+				//bannerIndex = oTabli[i].x; 这样写不可以
+				bannerIndex = this.x;
+
+				oTabli[bannerIndex].className = "on";
+				oImg[bannerIndex].style.display = "block";
+			}
+		};
+		
+		oLeft.onclick = function(){
+			oTabli[bannerIndex].className = "";
+			oImg[bannerIndex].style.display = "none";
+
+			bannerIndex--;
+			if(bannerIndex<0)bannerIndex = oTabli.length - 1;
+
+			oTabli[bannerIndex].className = "on";
+			oImg[bannerIndex].style.display = "block";
+		};
+
+		oRight.onclick = function(){
+			oTabli[bannerIndex].className = "";
+			oImg[bannerIndex].style.display = "none";
+
+			bannerIndex++;
+			bannerIndex %= oTabli.length;
+
+			oTabli[bannerIndex].className = "on";
+			oImg[bannerIndex].style.display = "block";
+		};*/
+		//上述代码有重复部分，可以写成一个函数
+
+		function change (fn){
+			oTabli[bannerIndex].className = "";
+			oImg[bannerIndex].style.display = "none";
+
+			fn();
+
+			oTabli[bannerIndex].className = "on";
+			oImg[bannerIndex].style.display = "block";
+		};
+		for(var i=0; i<oTabli.length; i++){
+			oTabli[i].x = i;
+			oTabli[i].onclick = function(){
+				var This = this;
+				change(function(){
+					bannerIndex = This.x;
+				});
+			}
+		};
+		
+		oLeft.onclick = function(){
+			change(function(){
+				bannerIndex--;
+				if(bannerIndex<0)bannerIndex = oTabli.length - 1;
+			});
+		};
+
+		oRight.onclick = function(){
+			change(function(){
+				bannerIndex++;
+				bannerIndex %= oTabli.length;
+			});
+		};
+
+		/*
+		var timer = setInterval(function(){
+			change(function(){
+				bannerIndex++;
+				bannerIndex %= oTabli.length;
+			});
+		},2000);//两秒
+		*/
+		var timer;
+		function auto(){
+			timer = setInterval(function(){
+				change(function(){
+					bannerIndex++;
+					bannerIndex %= oTabli.length;
+				});
+			},2000);//两秒
+		};
+
+		auto();
+
+		oBanner.onmouseenter = function(){ //鼠标移入，清除定时器
+			clearInterval(timer);
+		}
+		oBanner.onmouseleave = function(){
+			auto();
+		}
+	</script>
+</body>
+</html>

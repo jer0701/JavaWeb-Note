@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+		<style type="text/css">
+			p{cursor:pointer}
+			#box{width:100px;height:100px;background: red;position:relative;}
+		</style>
+
+		<script src="js/jquery-3.0.0.min.js">
+		</script>
+		
+    </head>
+
+<body>
+	<p>yyyyyyyyyyyyyyy</p>
+	<div id="box"></div>
+	<script type="text/javascript">
+		
+		$(function(){
+
+			$("p").click(function(){
+				$("#box").animate({
+					left:"250px",
+					opacity:"0.5",
+					height:"+=150px",
+					//width:"150px",
+					width:"toggle",
+					paddingLeft:"20px"
+				});
+			});
+		});
+	</script>
+	
+</body>
+</html>

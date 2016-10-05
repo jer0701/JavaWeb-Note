@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			.body{font-size:12px;font-family:"Microsoft yahei";}
+			#soft{width:100px;height:30px;color:#fff;background:#333;line-height:30px;text-align:center;list-style:none;position:relative;cursor:pointer;}
+			#hide{width:200px;height:200px;background:#ddd;position:absolute;top:0px;left:100px;list-style:none;display:none;}
+			#hide li a{text-decoration:none;color:#333;}
+			#hide li a:hover{color:#ff0000;}
+
+		</style>
+
+		<script>
+			window.onload = function(){//当页面加载完后触发
+				//代码
+			}
+		</script>
+    </head>
+
+<body>
+	<ul>
+		<li id="soft">yy
+			<ul id="hide">
+				<li><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+			</ul>
+		</li>
+	</ul>
+
+	<script type="text/javascript">
+		var oSoft = document.getElementById("soft");
+		var oHide = document.getElementById("hide");
+
+		oSoft.onmouseenter = function(){
+			oSoft.style.background = "#999";
+			oHide.style.display = "block";
+		};
+		oSoft.onmouseleave = function(){
+			oSoft.style.background = "#333";
+			oHide.style.display = "none";
+		};
+		
+	</script>
+</body>
+</html>

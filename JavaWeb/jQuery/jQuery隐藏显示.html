@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--声明当前页面的编码集：中文编码（gbk/gb2312），国际编码（utf-8）-->
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+         
+		<!--当前页面的三要素-->
+		<title>html模板</title>
+		<meta name="keywords" content="关键词,关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+		<style type="text/css">
+			#box{width:100px;height:100px;border:1px solid red;}
+		</style>
+
+		<script src="js/jquery-3.0.0.min.js">
+		</script>
+		
+    </head>
+
+<body>
+	<p>yyyyyyyyyyyyyyy</p>
+	<div id="box"></div>
+	<script type="text/javascript">
+		//可以不用写type="text/javascript"，javascript是HTML5中以及所有现代浏览器的默认脚本语言
+		/*$(document).ready(function(){
+			alert("ready");
+		});*/
+
+		$(function(){
+			$("p").click(function(){
+				//alert(this);
+				//this.hide() 没有用
+				$(this).hide();
+				//$("p").hide();
+				//$("#box").toggle(); //切换hide() show()
+			});
+			$("#box").mouseenter(function(){ //hide(speed,callback)
+				$("#box").hide();
+			});
+			$("#box").mouseleave(function(){ //show(speed,callback)
+				$("#box").show();
+			});
+		});
+	</script>
+	
+</body>
+</html>
