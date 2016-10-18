@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content=" ">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        a{text-decoration: none;}
+        ul,li{list-style: none;}
+        body{font-size: 14px;font-family: "微软雅黑";}
+    </style>
+</head>
+<body>
+    距离元旦还差：<span id='show'></span>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+        var oS = document.getElementById('show');
+        count();
+        function count(time){
+            time = new Date(2017,0,1,0,0,0); //月份是从0开始算的，9代表10月
+            var timer = null;
+            timer = setInterval(function(){
+                var tt = (time - new Date()) /1000; //剩余的秒数
+                var dd = parseInt(tt / 60 / 60 / 24); //天
+                var hh = parseInt(tt / 60 / 60) % 24; //时
+                var mm = parseInt(tt / 60) % 60; //分
+                var ss = parseInt(tt) % 60; //秒
+                //console.log(hh+"小时"+mm+"分钟"+ss+"秒");
+                oS.innerHTML = dd + "天" + hh + "小时" + mm + "分钟" + ss + "秒";
+            },1000);
+        }
+    </script>
+</body>
+</html>
